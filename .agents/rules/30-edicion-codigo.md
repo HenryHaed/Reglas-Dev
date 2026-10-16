@@ -3,17 +3,26 @@ trigger: always_on
 description: "Cómo modificar código sin reescribirlo y cómo reportar los cambios"
 ---
 
-# Alcance y autonomía
+# Alcance y supervisión del programador
 - Localiza primero los componentes y estilos afectados; realiza cambios mínimos y coherentes con la tarea.
 - No reformatees ni reescribas archivos completos sin necesidad, ni alteres pantallas, datos o comportamiento ajenos al alcance.
-- Aplica directamente ajustes pequeños y reversibles ya autorizados: espaciado, alineación, clases, textos, estados y subcomponentes necesarios.
-- No pidas confirmación por cada token compatible, archivo auxiliar o por superar 3-4 archivos. La cantidad de archivos no determina por sí sola el riesgo.
+- Los ajustes de espaciado, alineación, clases, textos, estados y subcomponentes también están sujetos al umbral obligatorio de confirmación; su bajo riesgo no permite omitirlo.
 - Respeta el trabajo previo del usuario. No descartes cambios existentes ni realices renombrados, movimientos o eliminaciones ajenos a la tarea.
 
-# Autorización según impacto
+# Confirmación obligatoria desde 3 archivos
+- El umbral de 3-4 archivos se activa desde 3 archivos afectados. Siempre presenta los cambios al programador y espera su confirmación explícita antes de aplicar un lote que alcance ese umbral, incluso si solo cambia CSS, textos o documentación.
+- Si desde el inicio prevés modificar 3 o más archivos, solicita confirmación antes de editar el primero. Si el alcance crece durante el trabajo, detente antes de afectar el tercer archivo y consulta al programador.
+- Para trabajos mayores, propone lotes de 3 a 4 archivos y solicita confirmación antes de cada lote; el lote final puede ser menor y también se presenta para aprobación. No apliques más de 4 archivos de una sola vez bajo esta política.
+- Cuenta archivos distintos creados, modificados, renombrados o eliminados, incluyendo estilos, tests, documentación y copias equivalentes para otros agentes. Leer archivos no cuenta; editar varias veces el mismo archivo no aumenta el conteo.
+- Mantén el conteo acumulado de la tarea hasta la revisión del programador. No dividas artificialmente el trabajo en cambios de 1-2 archivos ni reinicies el conteo para evitar la confirmación.
+- Presenta la lista concreta de archivos, qué cambiará, por qué, riesgos y verificaciones previstas; plantea las decisiones pendientes para que el programador pueda orientar el trabajo.
+- Mientras falte confirmación puedes inspeccionar y preparar una propuesta revisable, pero no aplicar las ediciones pendientes. El silencio no es aprobación y el agente no decide por el programador.
+- Una autorización general de la tarea no sustituye la confirmación explícita del lote concreto. Conserva la confirmación ya dada para ese lote mientras sus archivos y alcance no cambien; si cambia la lista o el alcance, vuelve a consultar.
+
+# Autorización adicional según impacto
 - Presenta una propuesta concreta y pide autorización si no existe ya para cambios incompatibles en contratos compartidos, arquitectura, identidad visual global, migraciones, dependencias, operaciones destructivas, despliegues o cambios de seguridad sensibles.
-- Una instrucción explícita que ya autoriza el cambio no requiere una segunda confirmación del mismo alcance. Si aparece un impacto distinto, explica esa diferencia antes de actuar.
-- Ante una ambigüedad que afecte comportamiento, permisos o alcance, consulta; para detalles visuales pequeños sigue el sistema existente y comunica la decisión.
+- La autorización por impacto complementa el umbral de archivos y no lo reemplaza. Un cambio sensible puede requerir confirmación aunque afecte solo 1 o 2 archivos.
+- Ante una ambigüedad que afecte comportamiento, permisos o alcance, consulta. Los detalles visuales pequeños siguen el sistema existente dentro del lote confirmado, sin ampliar lo aprobado.
 - Un ajuste de CSS en un formulario de acceso no autoriza cambiar autenticación. Conserva los controles y aplica la regla 40 cuando cambie su funcionamiento.
 - Reutilización y división de componentes: reglas 05 y 10. Si la extracción obliga a romper contratos, trata esa decisión como cambio de impacto.
 

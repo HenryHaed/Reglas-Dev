@@ -32,7 +32,7 @@ alwaysApply: false
 - Mantén clases con propósito claro y selectores cortos. Evita cadenas dependientes de la estructura interna de Vuetify, selectores por posición y sobrescrituras globales para un único caso.
 - No acumules `!important`; si una excepción es inevitable, acótala y justifica su necesidad. Revisa especificidad, orden de carga y CSS layers solo si el proyecto los utiliza.
 - No dupliques estilos maestros ni imports. Promueve una regla local a compartida cuando haya un patrón estable y consumidores identificados.
-- Puedes añadir una clase local o una variante compatible dentro del alcance sin pedir permiso por cada ajuste. No alteres tokens compartidos ni defaults con impacto global no autorizado.
+- Para añadir clases locales o variantes compatibles, respeta el umbral de la regla 30: desde 3 archivos, presenta los cambios al programador y espera confirmación. No alteres tokens compartidos ni defaults con impacto global no autorizado.
 - No reestructures el tema ni cambies el registro de Vuetify para corregir un detalle visual.
 - Al personalizar menús o diálogos, comprueba dónde se renderiza su contenido y usa el mecanismo público compatible para acotar sus estilos; no amplíes CSS global sin necesidad.
 

@@ -22,17 +22,24 @@ Antes, la regla recomendaba dividir al superar aproximadamente 150 líneas. Ahor
 
 Fuente principal: regla 10. Resumen de acceso rápido: `AGENTS.md`.
 
-## 2. Trabajo del agente con menos interrupciones
+## 2. Trabajo del agente con confirmación del programador
 
-- Se elimina el umbral de 3-4 archivos como motivo automático para pedir confirmación.
-- Los ajustes pequeños, reversibles y autorizados de CSS, textos, estados y componentes se realizan directamente.
-- La confirmación depende de nuevos impactos: contratos incompatibles, arquitectura, identidad global, dependencias, seguridad sensible, operaciones destructivas o despliegues.
-- No se repiten permisos ya concedidos.
-- Se pueden crear subcomponentes y archivos auxiliares necesarios siguiendo la estructura existente, sin solicitar permiso por cada archivo.
-- Una corrección visual local no obliga a rediseñar la pantalla completa.
-- Se preserva el trabajo del usuario y se mantienen las restricciones sobre cambios ajenos al alcance.
+Corrección solicitada por el usuario el 2026-10-16: se restaura el umbral de 3-4 archivos y se elimina la excepción que permitía omitir la consulta por tratarse de ajustes pequeños.
 
-Fuentes: reglas 05 y 30; ajustes coherentes en 40, 90, 100 y 110.
+- El umbral se activa desde 3 archivos afectados. El agente debe presentar los cambios y esperar confirmación explícita del programador.
+- Si desde el inicio se prevén 3 o más archivos, se consulta antes del primer cambio; si el alcance aumenta durante el trabajo, se detiene antes del tercero.
+- Los trabajos mayores se proponen en lotes de 3 a 4 archivos y se solicita confirmación antes de cada lote; el último puede ser menor y también requiere aprobación.
+- Se cuentan archivos distintos creados, modificados, renombrados o eliminados: componentes, CSS, tests, documentación y copias para otros agentes. Leer archivos no cuenta.
+- No se permite dividir artificialmente cambios en lotes de 1-2 archivos ni reiniciar el conteo para evitar la consulta.
+- Se presenta la lista de archivos, cambio previsto, motivo, riesgos, verificaciones y decisiones que necesitan orientación del programador.
+- Mientras no llegue la confirmación, solo se inspecciona y prepara la propuesta; no se aplican las ediciones pendientes. El silencio no autoriza continuar.
+- La autorización general de una tarea no sustituye la confirmación del lote concreto. Una confirmación ya dada se conserva mientras no cambien sus archivos o alcance.
+- Los cambios sensibles siguen requiriendo autorización por impacto, incluso si afectan menos de 3 archivos.
+- Se conserva el alcance local del diseño y la protección del trabajo del usuario.
+
+La obligación se aplica al trabajo del agente. Las recomendaciones de evitar confirmaciones triviales en la interfaz que se diseña siguen siendo pautas de UX para el usuario de esa aplicación.
+
+Fuente principal: regla 30. Se alinearon las reglas 00, 05, 40, 90 y 110, sus equivalentes de Antigravity, AGENTS.md y README.md.
 
 ## 3. Documentación y consultas proporcionales
 
@@ -133,7 +140,7 @@ Cada regla de la tabla tiene una versión `.cursor/rules/<nombre>.mdc` y otra `.
 | 05-codigo-existente | Reutilización por responsabilidad, estado local y estructura real. |
 | 10-vue-vuetify | Límite 150-300, mantenimiento, rendimiento y compatibilidad. |
 | 20-seguridad | Rutas/clientes reales, validación contextual y HTML sin nuevas dependencias. |
-| 30-edicion-codigo | Autonomía, autorización por impacto y verificación proporcional. |
+| 30-edicion-codigo | Confirmación obligatoria desde 3 archivos, revisión por lotes de 3-4 y autorización adicional por impacto. |
 | 40-iso27001-frontend | Diferencia entre cambios visuales y cambios de seguridad; sin recursos externos para diseño. |
 | 50-seguridad-frontend-extra | Clientes y validadores existentes; coherencia de restricciones de HTML. |
 | 60-privacidad-datos | Ubicación real de la utilidad de enmascarado, sin imponer una ruta. |
@@ -152,9 +159,9 @@ Además:
 - `docs/COMPONENTS.md`: creado porque faltaba, declarando la ausencia de componentes ejecutables.
 - `docs/MEJORAS-FRONTEND.md`: este registro, creado por solicitud expresa.
 
-## Verificación de esta modificación
+## Verificación de la actualización inicial
 
-Comprobaciones ejecutadas el 2026-10-16:
+Comprobaciones de la actualización inicial ejecutadas el 2026-10-16, antes de la corrección del umbral:
 
 | Comprobación | Resultado |
 | --- | --- |
@@ -162,7 +169,7 @@ Comprobaciones ejecutadas el 2026-10-16:
 | Cuerpos Cursor/Antigravity | Los 14 pares coinciden exactamente. |
 | Metadatos | 14 encabezados equivalentes: descripción, patrón y correspondencia entre `alwaysApply` y `trigger`. |
 | Contenido escrito | Los archivos de reglas de Cursor, AGENTS, README y el informe coinciden con el contenido preparado. |
-| Reglas anteriores incompatibles | No se encontraron las instrucciones anteriores de dividir al superar unas 150 líneas, extraer en la segunda repetición, confirmar por superar 3-4 archivos, imponer el flujo por store o asumir el alias `@`. |
+| Reglas anteriores incompatibles | No se encontraron las instrucciones anteriores de dividir al superar unas 150 líneas, extraer en la segunda repetición, imponer el flujo por store o asumir el alias `@`. |
 | Consultas y revisión de versiones | No se encontraron las instrucciones anteriores de exigir Context7 siempre ni ejecutar `npm outdated` al comenzar una tarea grande. |
 | Enlaces del README | Los 3 enlaces a documentos locales resuelven a archivos existentes. |
 | Referencias numeradas | Todas las referencias comprobadas con el formato «regla N» tienen una regla correspondiente. |
@@ -170,3 +177,17 @@ Comprobaciones ejecutadas el 2026-10-16:
 | Documentos obligatorios | Se consultaron los dos documentos creados y corresponden al paquete sin componentes ejecutables. |
 
 No aplica ejecutar build, lint ni pruebas de interfaz: esta carpeta no contiene `package.json`, scripts ni una aplicación Vue. No se verificó la activación real de las reglas dentro de Cursor o Antigravity; la comprobación de sus metadatos es estática. Tampoco se declara conformidad ISO/WCAG ni pruebas con usuarios.
+
+## Verificación de la corrección del umbral
+
+Se actualizaron 16 archivos: AGENTS.md, README.md, este informe, docs/ESTRUCTURA.md y 6 pares de reglas (00, 05, 30, 40, 90 y 110). Los dos documentos obligatorios se consultaron. Se corrigió en ESTRUCTURA.md la referencia a Git porque ahora existe el repositorio; no cambió la organización funcional del paquete ni el catálogo de componentes.
+
+Comprobaciones ejecutadas:
+
+- Los 14 pares de reglas conservan cuerpos idénticos y metadatos equivalentes.
+- Los archivos de reglas de Cursor y puntos de entrada revisados coinciden con la corrección preparada.
+- La búsqueda de las instrucciones anteriores que permitían omitir confirmaciones no encontró coincidencias en el contenido revisado.
+- La regla 30 define el umbral desde 3 archivos, la confirmación previa, el conteo acumulado, los lotes de 3-4 y la espera de respuesta del programador.
+- El inventario funcional conserva 33 archivos, excluyendo los metadatos internos de Git. No se crearon archivos adicionales para esta corrección.
+
+No se ejecutaron pruebas de una aplicación ni se verificó la activación de reglas en las interfaces de los agentes: esta revisión es documental.

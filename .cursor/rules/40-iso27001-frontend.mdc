@@ -36,7 +36,7 @@ Este proyecto busca alinearse con ISO/IEC 27001:2022. Al generar o modificar có
 - Las herramientas de debug (devtools, logs verbosos, mocks) deben quedar desactivadas en el build de producción.
 
 # Gestión de cambios (A.8.32)
-- Cambios de funcionamiento en autenticación, permisos, tratamiento de datos personales o dependencias críticas: explica impacto y aplica la autorización de la regla 30. Ajustar CSS o textos en esas pantallas no requiere otra confirmación si conserva esos controles y ya está autorizado.
+- Cambios de funcionamiento en autenticación, permisos, tratamiento de datos personales o dependencias críticas: explica impacto y aplica la autorización de la regla 30. Ajustar CSS o textos conserva esos controles, pero sigue exigiendo confirmación del programador desde 3 archivos según la regla 30; no se excluyen los cambios visuales del umbral.
 - Si el cambio es relevante para auditoría (auth, permisos, datos personales, dependencias críticas, configuración de seguridad), registra la evidencia real en `docs/ISO-EVIDENCIAS.md` con fecha, cambio, motivo, control ISO y verificación. Si falta el documento, solicita autorización antes de crearlo y reporta el registro pendiente.
 
 # Qué NO debes asumir

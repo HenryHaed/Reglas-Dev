@@ -2,7 +2,7 @@
 
 ## Alcance verificado
 
-Esta carpeta contiene instrucciones para agentes de desarrollo frontend. No contiene una aplicación Vue, `package.json`, lockfiles, componentes `.vue`, router, stores ni configuración ejecutable de Vuetify. No hay repositorio Git en esta carpeta.
+Esta carpeta contiene instrucciones para agentes de desarrollo frontend. No contiene una aplicación Vue, `package.json`, lockfiles, componentes `.vue`, router, stores ni configuración ejecutable de Vuetify. Actualmente tiene control de versiones Git; los metadatos de `.git/` no forman parte del paquete de reglas distribuido.
 
 ## Archivos y directorios
 
@@ -10,6 +10,7 @@ Esta carpeta contiene instrucciones para agentes de desarrollo frontend. No cont
 | --- | --- |
 | `AGENTS.md` | Punto de entrada para Codex/OpenCode y referencia a las reglas detalladas. |
 | `README.md` | Instalación y uso del paquete en un proyecto receptor. |
+| `SUGERENCIAS-REGLAS-BACKEND.md` | Propuestas de reglas para Node.js, Python, seguridad, datos y modelos de IA; documento informativo sin activación automática. |
 | `.cursor/rules/*.mdc` | Reglas detalladas con metadatos de activación de Cursor. |
 | `.agents/rules/*.md` | Reglas equivalentes con metadatos de activación de Antigravity. |
 | `docs/ESTRUCTURA.md` | Inventario verificable de este paquete. |

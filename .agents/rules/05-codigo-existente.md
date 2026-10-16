@@ -19,7 +19,7 @@ description: "Respetar el código, la estructura y las decisiones ya existentes"
 
 # Cambios dentro del alcance
 - Aplica los criterios de tamaño de la regla 10 al componente intervenido, sin reorganizar módulos ajenos.
-- Puedes crear los subcomponentes y archivos locales necesarios para una tarea autorizada siguiendo la estructura existente; no pidas permiso por cada archivo o carpeta auxiliar.
+- Los subcomponentes y archivos locales necesarios siguen la estructura existente y cuentan en el umbral de la regla 30: desde 3 archivos, presenta el lote al programador y espera confirmación antes de aplicarlo; no los crees por decisión unilateral para evitar la consulta.
 - Conserva contratos e imports, incluidos los dinámicos, y las mayúsculas/minúsculas correctas. No elimines ni muevas archivos ajenos a la tarea.
 - Refactorizaciones amplias, cambios de contratos compartidos o de arquitectura siguen la regla 30.
 - Reporta mejoras fuera del alcance sin aplicarlas.

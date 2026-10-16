@@ -43,7 +43,7 @@ alwaysApply: false
 - Verifica el resultado según las reglas 30 y 80, con los comandos y herramientas existentes; indica cualquier comprobación pendiente.
 
 # Gestión de cambios y entrega
-- Aplica directamente cambios pequeños y seguros cuando la tarea de integración los autorice; evita detenerte por cada token o clase compatible.
+- Antes de aplicar cambios de integración que afecten 3 o más archivos, presenta lotes de 3 a 4 archivos al programador y espera confirmación según la regla 30. El carácter pequeño o seguro de un token o clase no permite omitir esa revisión.
 - Antes de una migración de versión, sustitución masiva de estilos, actualización de paquetes o cambio de arquitectura, presenta un plan con archivos afectados, riesgos y pruebas y espera autorización.
 - Al terminar, indica: archivos revisados y modificados, tokens/temas integrados, incompatibilidades solucionadas, pruebas ejecutadas y pendientes.
 - No declares la integración terminada por copiar archivos sin verificar que estén cargados y utilizados en la interfaz.

@@ -21,7 +21,7 @@ description: "Reglas generales del proyecto (contexto, flujo de trabajo y depend
 
 # Creación de otros documentos
 - `docs/ISO-EVIDENCIAS.md`: para cambios relevantes de seguridad sigue la regla 40; si falta, solicita autorización para crearlo y comunica la evidencia pendiente.
-- Para crear o reemplazar `AGENTS.md`, crear `README.md` u otros documentos nuevos, solicita autorización cuando la petición del usuario no la incluya ya. No vuelvas a pedir un permiso concedido.
+- Para crear o reemplazar `AGENTS.md`, crear `README.md` u otros documentos nuevos, solicita autorización cuando la petición del usuario no la incluya ya. La autorización para crear un documento no sustituye la confirmación del lote de archivos exigida por la regla 30; conserva la confirmación ya dada al mismo lote.
 - La autorización documental no permite inventar pruebas ni modificar áreas ajenas a la tarea.
 
 # Trabajo eficiente
@@ -29,7 +29,7 @@ description: "Reglas generales del proyecto (contexto, flujo de trabajo y depend
 2. Comprueba versiones declaradas y resueltas en package.json y lockfile cuando afecten a la implementación. Usa el gestor y scripts reales.
 3. Consulta documentación oficial de esa versión, documentación local o código instalado cuando haya dudas de API o compatibilidad. Context7 y los MCP son opcionales si están disponibles; no los instales ni los conviertas en un bloqueo.
 4. Reutiliza patrones ya verificados en el proyecto. Si no puedes confirmar una API nueva, usa una alternativa conocida compatible o comunica la limitación.
-5. Para decisiones de alcance o arquitectura aplica la política de autorización de la regla 30. Resuelve detalles visuales pequeños dentro de la tarea sin consultas repetidas.
+5. Antes de editar, estima los archivos afectados y aplica siempre la regla 30: desde 3 archivos presenta el lote al programador y espera confirmación explícita. Los detalles visuales pequeños no eximen de este umbral; si aumenta el alcance, consulta de nuevo.
 
 # Principios y dependencias
 - Código legible, responsabilidades claras y reutilización con criterios de la regla 05.

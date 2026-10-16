@@ -16,7 +16,7 @@ Las versiones de Vue/Vuetify se detectan por proyecto; está prohibido migrar pa
 - Vue, Vuetify y CSS nativo ya disponibles, sin instalaciones ni migraciones para tareas visuales.
 - UX/UI sencilla, contenido directo, estados comprensibles y personalización de CSS con alcance controlado.
 - Componentes: revisión entre 150 y 300 líneas y máximo de 300 líneas físicas en archivos `.vue` nuevos o reorganizados; pueden ser menores por mantenimiento. Los heredados mayores se reportan y se tratan según el alcance, sin afirmar cumplimiento ficticio.
-- Autonomía para ajustes pequeños autorizados y confirmación según impacto, no por cantidad de archivos.
+- Confirmación obligatoria del programador desde 3 archivos afectados, también para CSS, textos y documentación. Presenta archivos, cambios y pruebas antes de editar; para trabajos mayores, confirma cada lote de 3 a 4 archivos (el último puede ser menor). No dividas artificialmente el trabajo para evitar el umbral. La regla 30 detalla el conteo y las aprobaciones adicionales por impacto.
 
 Las reglas 85 (UX/UI) y 90 (identidad/CSS) se complementan. Las reglas 00 y 30 concentran el flujo de trabajo; la 10 define tamaño, organización y rendimiento; la 80 define verificaciones.
 
