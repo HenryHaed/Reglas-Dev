@@ -1,0 +1,40 @@
+---
+trigger: glob
+description: "Seguridad adicional en el frontend (XSS, rutas, peticiones, archivos, build)"
+globs: "src/**/*.vue,src/**/*.js,index.html,vite.config.js"
+---
+
+# XSS y contenido dinámico
+- Usa interpolación `{{ }}` de Vue para texto. El HTML externo sigue las restricciones de la regla 20; no añadas un sanitizador ni otra dependencia para resolver un ajuste visual.
+- Nunca construyas URLs, `href` o `src` directamente con input del usuario. Valida el protocolo (solo `https:`/`http:`; bloquea `javascript:` y `data:`).
+- Enlaces externos con `target="_blank"` siempre llevan `rel="noopener noreferrer"`.
+- No inyectes estilos ni scripts dinámicos con datos del usuario.
+- `postMessage`: valida siempre `event.origin`; nunca uses `"*"` como origen destino con datos sensibles.
+
+# Peticiones a la API
+- Reutiliza los clientes HTTP centralizados existentes con sus controles de token/cookies, 401/403, errores y timeout. No unifiques clientes distintos ni crees otro por una tarea visual.
+- Nunca construyas URLs de API concatenando input del usuario sin `encodeURIComponent`.
+- Define timeout en las peticiones y maneja el estado de error en la UI.
+- No envíes más datos de los necesarios al backend ni guardes en el store respuestas completas con campos sensibles que no se usan.
+- Evita duplicar envíos: deshabilita el botón mientras la petición está en curso (doble clic en pagos o creaciones).
+
+# Almacenamiento en el navegador
+- Prohibido guardar en `localStorage`/`sessionStorage`: contraseñas, tokens de larga duración, datos personales completos, datos de pago.
+- Si guardas algo (preferencias de UI, por ejemplo), usa un wrapper central en `src/utils/` con claves con prefijo y sin datos sensibles.
+- Al cerrar sesión, borra todo lo que el wrapper haya guardado.
+
+# Subida y descarga de archivos
+- Valida tipo, extensión y tamaño máximo en el cliente (UX), y recuerda que el backend debe validarlos de nuevo.
+- Nunca renderices un archivo subido por el usuario como HTML; las vistas previas de imagen usan `URL.createObjectURL` y se liberan con `revokeObjectURL`.
+
+# Formularios
+- Reutiliza `v-form` cuando corresponda y los validadores existentes en su ubicación real; conserva validaciones y mensajes accesibles al modificar el diseño.
+- Límites de longitud (`maxlength`/reglas) en los campos de texto.
+- Campos sensibles (contraseña, tarjeta, documento): `autocomplete` adecuado, no se muestran en logs ni en la URL.
+- Nunca pases datos sensibles por query params de la URL.
+
+# Build y configuración
+- No expongas secretos en variables `VITE_`: todo lo que empiece con `VITE_` es público.
+- Sourcemaps desactivados en producción, salvo que yo indique lo contrario.
+- No dejes `console.log`, `debugger` ni datos de prueba en producción.
+- Si el proyecto define headers de seguridad (CSP, X-Frame-Options, etc.) en el servidor web o en Vite, no agregues scripts inline ni orígenes nuevos sin avisarme.

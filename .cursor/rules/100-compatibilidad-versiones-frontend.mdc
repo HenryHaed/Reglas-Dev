@@ -1,0 +1,44 @@
+---
+description: Compatibilidad de dependencias y adopción gradual del diseño institucional MOF sin actualizaciones automáticas
+globs: "package.json,package-lock.json,pnpm-lock.yaml,yarn.lock,src/**/*.vue,src/**/*.js,src/**/*.css,src/plugins/**/*.js,vite.config.js,index.html"
+alwaysApply: false
+---
+
+# Diagnóstico antes de intervenir
+- Antes de integrar el diseño, revisa `package.json`, el lockfile y la configuración real de Vue, Vuetify, Vite, iconos, fuentes y gráficos, si están disponibles.
+- Comprueba versiones ya instaladas y APIs utilizadas; no asumas versiones ni compatibilidad por el nombre de la librería.
+- Si `package.json` no está disponible, solicita ese archivo o reporta la incertidumbre; no bloquees tareas que no dependan de versiones.
+- Revisa conflictos con estilos, temas, plugins y componentes existentes antes de recomendar cambios. El estándar institucional debe incorporarse de forma efectiva, no solo documentarse.
+
+# Principio no negociable
+- La compatibilidad técnica no exime de aplicar los patrones institucionales al componente o flujo autorizado; un ajuste local no exige rediseñar toda la pantalla.
+- Adapta implementación y planifica por etapas sin actualizaciones automáticas; si existe bloqueo real, informa y solicita aprobación.
+
+# Compatibilidad y cambios mínimos
+- No actualices Vue, Vuetify, Vite, Node.js ni otras dependencias únicamente para incorporar los colores institucionales.
+- No ejecutes `npm install`, `npm update`, `npm audit fix` ni comandos equivalentes que modifiquen dependencias o lockfiles sin autorización.
+- Conserva el gestor de paquetes y el lockfile existentes; no los sustituyas ni regeneres por conveniencia.
+- Adapta los tokens y clases del sistema MOF a las capacidades de la versión instalada, sin migraciones masivas ni APIs incompatibles.
+- No presupongas que dos sistemas MOF comparten versiones, plugins, carpetas o configuración de Vuetify.
+- Si un sistema no utiliza Vuetify o tiene otra versión o arquitectura visual, diagnostica primero y adapta el diseño; no copies `createVuetify` ni defaults sin verificar soporte.
+- Mantén intactos contratos, comportamiento y diseño de pantallas no relacionadas con la tarea.
+
+# Librerías y recursos opcionales
+- No instales Highcharts, ApexCharts, iconos MDI, Sass, Tailwind, fuentes ni librerías de accesibilidad solo por aparecer en la guía del diseño.
+- Reutiliza el motor de gráficos o iconos ya existente; aplica `SERIES_COLORS` cuando sea técnicamente compatible.
+- Comprueba si Urbanist ya está cargada antes de añadir un recurso externo o una fuente local.
+- Resuelve las mejoras visuales con Vue, Vuetify y CSS disponibles. Si una función no es viable sin otra librería, explica la limitación y ofrece una alternativa sin dependencias; no instales ni actualices paquetes.
+
+# Plan de adopción y verificación
+- Para una adopción amplia autorizada, prioriza tokens y una pantalla piloto. Para un ajuste local, trabaja solo en los componentes afectados sin imponer una fase adicional.
+- Para cada sistema, informa: versiones detectadas, componentes compatibles, riesgos, cambios mínimos propuestos y pruebas a realizar.
+- Comprueba compilación, regresión visual, tema claro/oscuro, contraste y comportamiento de componentes afectados cuando sea posible.
+- Si una versión antigua impide usar una característica, ofrece una alternativa compatible y solicita autorización antes de proponer una actualización mayor.
+- Documenta modificaciones relevantes de diseño, dependencias o accesibilidad en los registros existentes cuando corresponda; no afirmes que existe conformidad WCAG o ISO sin evidencia.
+
+# Conflictos entre reglas y dependencias reales
+- Si cualquier regla o ejemplo menciona una versión incompatible con el proyecto, prevalece la versión verificada en el repositorio. Usa APIs compatibles; si hace falta actualizar, explica impacto y solicita autorización antes de hacerlo.
+- Verifica rutas, alias, módulos y clientes en el repositorio receptor; no heredes nombres de otros sistemas ni presupongas una estructura.
+- Antes de aplicar la regla 90, comprueba dónde están realmente `designSystem.js` y el CSS global. Reutiliza las ubicaciones existentes; no crees `src/style.css` si el proyecto usa `src/assets/styles/`.
+
+Documentación obligatoria, consulta proporcional y creación de archivos: regla 00. No repitas el inventario completo por cada cambio visual.

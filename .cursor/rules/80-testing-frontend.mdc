@@ -1,0 +1,31 @@
+---
+description: Pruebas del frontend, incluyendo casos de seguridad
+globs: "**/*.vue,src/**/*.js,**/*.test.js,**/*.spec.js,tests/**,src/**/__tests__/**"
+alwaysApply: false
+---
+
+# Herramientas y alcance
+- Usa el framework y los comandos que ya tenga el proyecto. No instales herramientas, navegadores ni dependencias adicionales para una tarea visual.
+- Aplica esta regla cuando cambie comportamiento del frontend, aunque no se haya abierto un archivo de tests.
+- Prueba lógica modificada de permisos, validadores, sesión, formularios y composables con las herramientas existentes. Si no hay infraestructura de tests, describe el límite y realiza las comprobaciones manuales posibles sin afirmar cobertura automatizada.
+- Para cambios exclusivamente cosméticos, prioriza revisión visual y de interacción; no añadas tests que solo comprueben clases o repitan la implementación.
+- Sigue la regla 30 para agrupar verificaciones y evitar ejecuciones repetidas sin motivo.
+
+# Casos funcionales y de seguridad según el cambio
+- Ruta protegida sin sesión: redirección a login.
+- Usuario sin permiso: acciones restringidas y manejo seguro de la respuesta 403.
+- Respuesta 401: limpieza de sesión y redirección según el flujo existente.
+- Formularios: entradas inválidas o maliciosas, vacíos, textos largos, errores de campo y conservación de lo escrito ante fallos.
+- Contenido dinámico: renderizado escapado; conserva las restricciones de HTML de las reglas 20 y 50.
+- Peticiones: carga visible, prevención de doble envío, error recuperable y respuestas obsoletas que no sobrescriben resultados actuales.
+- Extracciones de componentes: props, emits, slots y consumidores relevantes conservan su comportamiento.
+- Usa fixtures y mocks sin datos ni credenciales reales; no dependas de servicios externos reales.
+- No borres ni debilites tests para obtener resultados favorables. Si una expectativa dejó de ser válida por un cambio autorizado, justifica y verifica su reemplazo.
+
+# Revisión visual y de interacción
+- Revisa el componente o flujo afectado en escritorio y móvil: alineación, legibilidad, distribución y ausencia de desbordamientos accidentales.
+- Comprueba texto largo, zoom, navegación por teclado, foco visible, etiquetas y mensajes asociados a los campos.
+- Revisa los temas existentes afectados; no agregues temas ni recursos para completar la comprobación.
+- Comprueba los estados que correspondan: normal, carga, vacío, éxito, error y deshabilitado.
+- En diálogos o menús modificados, comprueba apertura, cierre y recuperación del foco. Evita esconder información esencial por cambios responsive.
+- Reporta qué se observó realmente y qué quedó pendiente. Un checklist escrito no equivale a una prueba ejecutada.

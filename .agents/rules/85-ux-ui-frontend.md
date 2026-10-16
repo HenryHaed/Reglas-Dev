@@ -1,0 +1,55 @@
+---
+trigger: glob
+description: "UX/UI sencilla, interacción clara y contenido preciso para personas sin conocimientos técnicos"
+globs: "**/*.vue,src/**/*.css,src/**/*.js"
+---
+
+# Objetivo
+- Cada pantalla debe explicar qué muestra, qué puede hacer la persona y qué ocurrió después de actuar.
+- Diseña para personas sin conocimientos técnicos, con lenguaje respetuoso, directo y familiar; no expongas detalles de implementación en la interfaz.
+- Mejora el componente o flujo solicitado conservando permisos, datos, contratos e identidad institucional. No conviertas una corrección local en un rediseño completo.
+
+# Jerarquía y cantidad de información
+- Define un propósito principal por pantalla o sección y una acción visualmente dominante por tarea.
+- Mantén las acciones secundarias con menor énfasis y las destructivas identificables. Usa la semántica de color de la regla 90.
+- Muestra primero la información necesaria para decidir. Agrupa detalles y opciones poco frecuentes en controles claros como "Más filtros" o "Detalles".
+- No escondas datos esenciales, errores, consecuencias de una acción o requisitos obligatorios para reducir contenido.
+- Evita paneles de métricas, banners, tarjetas, iconos o chips que no ayuden a la tarea. No inventes estadísticas ni contenido de relleno.
+- Usa espacio, alineación y tipografía para agrupar; no añadas borde, sombra y tarjeta a cada dato.
+- Mantén nombres, ubicaciones y comportamiento de navegación consistentes; evita profundidad innecesaria.
+
+# Textos y ayuda
+- Usa títulos descriptivos, frases breves y palabras comunes; explica siglas indispensables.
+- Los botones describen el resultado: "Guardar cambios", "Crear usuario", "Descargar PDF". Evita "Aceptar" cuando no explique la acción.
+- Coloca ayuda breve junto al campo o decisión correspondiente. Evita párrafos repetidos y textos obvios.
+- Los placeholders son ejemplos complementarios, nunca sustitutos de etiquetas visibles.
+- Los iconos solos necesitan nombre accesible y deben ser comprensibles; las acciones importantes para principiantes llevan texto visible.
+- Tooltips y color no pueden ser la única fuente de información necesaria.
+
+# Formularios
+- Parte de una columna; usa varias solo cuando ayuden a relacionar campos y se adapten correctamente a móvil.
+- Agrupa campos por propósito y distingue obligatorios de opcionales con el patrón accesible del proyecto.
+- Valida al salir de un campo ya interactuado o al enviar, según el flujo; evita mostrar errores antes de que la persona empiece.
+- Indica junto al campo qué corregir. Al enviar con errores, facilita localizar el primero sin borrar lo escrito.
+- Conserva los valores ante fallos recuperables; respeta las restricciones de datos sensibles y nunca persistas secretos para recuperar un formulario.
+- Previene envíos duplicados mientras hay una petición en curso e indica que se está guardando. No bloquees toda la pantalla sin necesidad.
+
+# Tablas, filtros y detalle
+- Muestra columnas útiles para la tarea; lleva información secundaria al detalle y permite acceder al texto completo cuando haya truncado.
+- Alinea cantidades y encabezados coherentemente. Mantén acciones por fila predecibles y permisos existentes.
+- Muestra los filtros frecuentes, identifica los activos y ofrece una forma clara de limpiarlos.
+- Diferencia "todavía no hay registros" de "no hay coincidencias". Ofrece la siguiente acción apropiada.
+- En móvil prioriza datos esenciales sin perder acceso al resto; si la comparación requiere tabla, permite desplazamiento horizontal dentro de su contenedor.
+
+# Respuesta y recuperación
+- Muestra carga, éxito o error de forma proporcionada. Un estado vacío debe explicar qué hacer a continuación.
+- Los errores son seguros y útiles: qué no pudo completarse y cómo continuar; no muestres el mensaje crudo del servidor.
+- Para validación usa mensajes junto al campo; para información secundaria reutiliza notificaciones existentes sin duplicarlas en varios lugares.
+- Usa diálogos para tareas breves o confirmaciones relevantes; evita diálogos anidados y confirmaciones para acciones triviales.
+- Explica el objeto y las consecuencias antes de una acción destructiva que requiera confirmación.
+- Conserva y restaura el foco cuando corresponda al abrir y cerrar diálogos o menús; no alteres las funciones accesibles de Vuetify.
+
+# Diseño cómodo
+- Usa tamaños legibles, separación suficiente entre controles y estados distinguibles sin depender solo del color.
+- Aplica responsive, temas y CSS según la regla 90. Las animaciones deben ayudar a entender el cambio, ser discretas y respetar movimiento reducido.
+- Verifica lo modificado según la regla 80; no afirmes facilidad de uso validada con usuarios si no se realizaron esas sesiones.
